@@ -8,10 +8,10 @@
     align-items: center;
     padding-left: 80px;
 }
+
 h2{
     margin: 10px;
 }
-
 
 #logo{
     height: 100px;
@@ -20,6 +20,7 @@ h2{
     margin-bottom: 0px;
     border-radius: 20px;
     border: white solid 2px;
+    border-radius: 5px;
 }
 
 #principal{

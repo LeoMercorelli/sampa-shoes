@@ -1,0 +1,20 @@
+#cart-container{
+    width: 200px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border: white 2px solid;
+}
+
+#img-product{
+    width: 100px;
+    height: 100px;
+    margin: 15px;
+}
+
+#titulo-product{
+    font-size: medium;
+    width: 130px;
+}

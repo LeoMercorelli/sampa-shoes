@@ -1,0 +1,26 @@
+.catalogo-container {
+    margin-top: 100px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px;
+}
+
+.titulo-principal {
+    margin-top: 300px;
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    border: 3px solid purple;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.mensaje-error {
+    text-align: center;
+    font-size: 1.5rem;
+    color: red;
+    margin-top: 50px;
+}
