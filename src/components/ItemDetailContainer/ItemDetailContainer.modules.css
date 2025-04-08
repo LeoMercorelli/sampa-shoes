@@ -1,7 +1,33 @@
-#detail-container{
-    margin-top: 300px;
+#detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 60px 40px;
+    flex-wrap: wrap;
+    background-color: #0e0e0e;
+    border-radius: 5%;
+}
+
+.info-extra {
+    max-width: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
 }
+
+.info-extra p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.info-extra h1 {
+    font-size: 2rem;
+    color: #ffd700;
+    margin: 0;
+}
+

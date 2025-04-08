@@ -1,50 +1,55 @@
 import { useState } from 'react';
+import './ItemCount.modules.css';
 
+const ItemCount = ({ stock, onAgregar }) => {
+    // Estado local para llevar el conteo de productos a agregar
+    const [contador, setContador] = useState(1);
 
-const ItemCount = () => {
+    // Aumenta el contador, hasta el máximo de stock disponible
+    const aumentar = () => {
+        if (contador < stock) setContador(contador + 1);
+    };
 
-    const [contador, setContador] = useState(1)
+    // Disminuye el contador, hasta un mínimo de 1
+    const disminuir = () => {
+        if (contador > 1) setContador(contador - 1);
+    };
 
-    const aumentarContador = () => {
-        if (contador < 100) {
-            setContador(contador + 1)
+    // Maneja cambios manuales en el input de cantidad
+    const manejarInput = (e) => {
+        const valor = parseInt(e.target.value);
+        // Validación para evitar valores fuera de rango o no numéricos
+        if (!isNaN(valor) && valor >= 1 && valor <= stock) {
+            setContador(valor);
         }
-    }
-
-    const restarContador = () => {
-        if (contador > 1) {
-            setContador(contador - 1)
-        }
-    }
-
-    const agregarCarrito = () => {
-        console.log("Agregamos al carrito " + contador + " productos!")
-    }
-
-    const funcionesInput = (numero) => {
-        if (numero > 0 && numero < 100) {
-            setContador(numero)
-        }
-        else {
-            console.log("Error!")
-        }
-    }
-
+    };
 
     return (
-        <div>
-            <input type="number" onChange={(event) => funcionesInput(parseInt(event.target.value))} value={contador} />
+        <div className="item-count">
+            <div className="contador">
+                {/* Botón para disminuir */}
+                <button className="boton" onClick={disminuir}>-</button>
 
+                {/* Input de cantidad controlado */}
+                <input
+                    type="number"
+                    value={contador}
+                    onChange={manejarInput}
+                    className="input-cantidad"
+                    min={1}
+                    max={stock}
+                />
 
-            <div>
-                <button onClick={restarContador}>-</button>
-                <button onClick={aumentarContador}>+</button>
+                {/* Botón para aumentar */}
+                <button className="boton" onClick={aumentar}>+</button>
             </div>
 
-            <button onClick={agregarCarrito}>Agregar al carrito</button>
+            {/* Botón para agregar productos al carrito */}
+            <button className="agregar-btn" onClick={() => onAgregar(contador)}>
+                Agregar al carrito
+            </button>
         </div>
-    )
-}
+    );
+};
 
-export default ItemCount
-
+export default ItemCount;
